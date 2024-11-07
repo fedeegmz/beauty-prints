@@ -9,17 +9,39 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:*"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
+    "languages": [
       {
-        "command": "beauty-prints.info",
-        "title": "Beauty Prints"
+        "id": "javascript",
+        "aliases": [
+          "JavaScript",
+          "javascript"
+        ],
+        "extensions": [
+          ".js"
+        ],
+        "configuration": "./language-configuration.json"
       },
       {
-        "command": "beauty-prints.print",
-        "title": "btprint"
+        "id": "typescript",
+        "aliases": [
+          "TypeScript",
+          "typescript"
+        ],
+        "extensions": [
+          ".ts"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.insertBtPrint",
+        "title": "Insert BTPrint Console Log"
       }
     ]
   },

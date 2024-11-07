@@ -1,39 +1,20 @@
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
+	const jsProvider = vscode.languages.registerCompletionItemProvider('javascript', {
 
-	const disposable = vscode.commands.registerCommand('beauty-prints.info', () => {
-		vscode.window.showInformationMessage('I am here to help you with your code!');
-	});
+		provideCompletionItems(_document: vscode.TextDocument, _position: vscode.Position, _token: vscode.CancellationToken, _context: vscode.CompletionContext) {
 
-	const btprintCommand = vscode.commands.registerCommand('beauty-prints.print', () => {
-		console.log("---------- IN BTPRINT  ----------");
-		const editor = vscode.window.activeTextEditor;
+			const btprintCompletion = new vscode.CompletionItem("btprint");
+			btprintCompletion.insertText = new vscode.SnippetString('console.log("---------- ${1|Beauty Print|} ----------");');
+			const docs = new vscode.MarkdownString("Inserts a console.log statement.");
+			btprintCompletion.documentation = docs;
 
-		if (editor) {
-			const { document, selection } = editor;
-
-			console.log(">>>>>>>>>> document ----------");
-			console.log(document);
-			console.log("---------- document <<<<<<<<<<");
-			console.log(">>>>>>>>>> selection ----------");
-			console.log(selection);
-			console.log("---------- selection <<<<<<<<<<");
-
-			const range = new vscode.Range(
-				selection.start.line,
-				7,
-				selection.start.line,
-				selection.start.character
-			);
-
-			if (document.getText(range) === 'btprint') {
-				editor.edit(editBuilder => {
-					editBuilder.replace(range, 'print("---------- BEAUTY PRINT ----------")');
-				});
-			}
+			return [
+				btprintCompletion,
+			];
 		}
 	});
 
-	context.subscriptions.push(disposable, btprintCommand);
+	context.subscriptions.push(jsProvider);
 }
