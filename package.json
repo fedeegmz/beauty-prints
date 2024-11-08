@@ -7,10 +7,9 @@
     "vscode": "^1.95.0"
   },
   "categories": [
+    "Snippets",
+    "Debuggers",
     "Other"
-  ],
-  "activationEvents": [
-    "onLanguage:*"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -19,10 +18,12 @@
         "id": "javascript",
         "aliases": [
           "JavaScript",
+          "Javascript",
           "javascript"
         ],
         "extensions": [
-          ".js"
+          ".js",
+          ".jsx"
         ],
         "configuration": "./language-configuration.json"
       },
@@ -30,18 +31,47 @@
         "id": "typescript",
         "aliases": [
           "TypeScript",
+          "Typescript",
           "typescript"
         ],
         "extensions": [
-          ".ts"
+          ".ts",
+          ".tsx"
         ],
         "configuration": "./language-configuration.json"
-      }
-    ],
-    "commands": [
+      },
       {
-        "command": "extension.insertBtPrint",
-        "title": "Insert BTPrint Console Log"
+        "id": "python",
+        "aliases": [
+          "Python",
+          "python"
+        ],
+        "extensions": [
+          ".py"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "dart",
+        "aliases": [
+          "Dart",
+          "dart"
+        ],
+        "extensions": [
+          ".dart"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "rust",
+        "aliases": [
+          "Rust",
+          "rust"
+        ],
+        "extensions": [
+          ".rs"
+        ],
+        "configuration": "./language-configuration.json"
       }
     ]
   },
@@ -51,17 +81,19 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
+    "format": "prettier --write \"src/**/*.ts\"",
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.95.0",
     "@types/mocha": "^10.0.9",
     "@types/node": "20.x",
+    "@types/vscode": "^1.95.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.7.0",
-    "eslint": "^9.13.0",
-    "typescript": "^5.6.3",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
   }
 }
