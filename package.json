@@ -1,11 +1,12 @@
 {
   "name": "beauty-prints",
-  "displayName": "beauty_prints",
-  "description": "Make print lines easier and faster",
+  "displayName": "Beauty Prints",
+  "description": "Insert a stylized print line to make debugging easier.",
   "version": "0.0.1",
   "repository": {
     "url": "https://github.com/fedeegmz/beauty-prints"
   },
+  "publisher": "fedeegmz",
   "engines": {
     "vscode": "^1.95.0"
   },
