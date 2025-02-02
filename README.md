@@ -8,7 +8,7 @@
 - The inserted line has the format:
 
   ```python
-  print('---------- Beauty Print ----------')
+  print(f'---------- Beauty Print ----------')
 
   ```
 

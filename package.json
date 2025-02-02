@@ -2,7 +2,7 @@
   "name": "beauty-prints",
   "displayName": "Beauty Prints",
   "description": "Insert a stylized print line to make debugging easier.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "url": "https://github.com/fedeegmz/beauty-prints"
   },
