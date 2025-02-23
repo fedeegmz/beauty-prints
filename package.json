@@ -76,6 +76,17 @@
           ".rs"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "kotlin",
+        "aliases": [
+          "Kotlin",
+          "kotlin"
+        ],
+        "extensions": [
+          ".kt"
+        ],
+        "configuration": "./language-configuration.json"
       }
     ]
   },
