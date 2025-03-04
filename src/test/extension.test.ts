@@ -14,7 +14,7 @@ suite("Beauty Prints Extension Test Suite", function () {
     AvailableLanguages.PYTHON,
     AvailableLanguages.DART,
     AvailableLanguages.RUST,
-    // AvailableLanguages.KOTLIN,
+    AvailableLanguages.KOTLIN,
   ];
 
   test("Should register completion providers for all supported languages", async () => {
@@ -219,41 +219,41 @@ suite("Beauty Prints Extension Test Suite", function () {
     );
   });
 
-  // test("Should insert correct print statement snippet for kotlin file", async () => {
-  //   const document = await vscode.workspace.openTextDocument({
-  //     language: "kotlin",
-  //     content: "",
-  //   });
-  //   const editor = await vscode.window.showTextDocument(document);
-  //   const position = new vscode.Position(0, 0);
+  test("Should insert correct print statement snippet for kotlin file", async () => {
+    const document = await vscode.workspace.openTextDocument({
+      language: "kotlin",
+      content: "",
+    });
+    const editor = await vscode.window.showTextDocument(document);
+    const position = new vscode.Position(0, 0);
 
-  //   await editor.edit((editBuilder) => {
-  //     editBuilder.insert(position, MAIN_COMMAND);
-  //   });
+    await editor.edit((editBuilder) => {
+      editBuilder.insert(position, MAIN_COMMAND);
+    });
 
-  //   await vscode.commands.executeCommand("editor.action.triggerSuggest");
+    await vscode.commands.executeCommand("editor.action.triggerSuggest");
 
-  //   const completionList =
-  //     await vscode.commands.executeCommand<vscode.CompletionList>(
-  //       "vscode.executeCompletionItemProvider",
-  //       document.uri,
-  //       position
-  //     );
+    const completionList =
+      await vscode.commands.executeCommand<vscode.CompletionList>(
+        "vscode.executeCompletionItemProvider",
+        document.uri,
+        position
+      );
 
-  //   assert.ok(completionList, "No completion list returned");
-  //   assert.ok(completionList.items.length > 0, "No completion items returned");
+    assert.ok(completionList, "No completion list returned");
+    assert.ok(completionList.items.length > 0, "No completion items returned");
 
-  //   const btprintItem = completionList.items.find(
-  //     (item) => item.label === MAIN_COMMAND
-  //   );
-  //   assert.ok(btprintItem, "btprint command not found in completion items");
+    const btprintItem = completionList.items.find(
+      (item) => item.label === MAIN_COMMAND
+    );
+    assert.ok(btprintItem, "btprint command not found in completion items");
 
-  //   await editor.insertSnippet(btprintItem.insertText as vscode.SnippetString);
+    await editor.insertSnippet(btprintItem.insertText as vscode.SnippetString);
 
-  //   const updatedText = document.getText();
-  //   assert.ok(
-  //     updatedText.includes("println("),
-  //     "Inserted statement is not a print function"
-  //   );
-  // });
+    const updatedText = document.getText();
+    assert.ok(
+      updatedText.includes("println("),
+      "Inserted statement is not a print function"
+    );
+  });
 });
