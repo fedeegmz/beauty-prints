@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { PrintStatement } from "./classes/PrintStatement.class";
+import { Commands } from "./classes/Commands.class";
 import { MAIN_COMMAND } from "./utils/constants/commands";
 import { AvailableLanguages } from "./utils/enums/language.enum";
 
@@ -13,8 +13,8 @@ function getProvider(language: AvailableLanguages) {
       _token: vscode.CancellationToken,
       _context: vscode.CompletionContext
     ) {
-      const printStatement = new PrintStatement(language);
-      const statement = printStatement.getPrintStatement();
+      const commands = new Commands(language);
+      const statement = commands.getPrintStatement();
 
       const btprintCompletion = new vscode.CompletionItem(MAIN_COMMAND);
       btprintCompletion.insertText = new vscode.SnippetString(statement);
@@ -34,12 +34,14 @@ export function activate(context: vscode.ExtensionContext) {
   const pyProvider = getProvider(AvailableLanguages.PYTHON);
   const dartProvider = getProvider(AvailableLanguages.DART);
   const rsProvider = getProvider(AvailableLanguages.RUST);
+  const ktProvider = getProvider(AvailableLanguages.KOTLIN);
 
   context.subscriptions.push(
     jsProvider,
     tsProvider,
     pyProvider,
     dartProvider,
-    rsProvider
+    rsProvider,
+    ktProvider
   );
 }
