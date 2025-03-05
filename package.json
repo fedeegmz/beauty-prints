@@ -2,7 +2,7 @@
   "name": "beauty-prints",
   "displayName": "Beauty Prints",
   "description": "Insert a stylized print line to make debugging easier.",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "repository": {
     "url": "https://github.com/fedeegmz/beauty-prints"
   },
@@ -76,6 +76,17 @@
           ".rs"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "kotlin",
+        "aliases": [
+          "Kotlin",
+          "kotlin"
+        ],
+        "extensions": [
+          ".kt"
+        ],
+        "configuration": "./language-configuration.json"
       }
     ]
   },
@@ -89,15 +100,15 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.9",
-    "@types/node": "20.x",
-    "@types/vscode": "^1.95.0",
-    "@typescript-eslint/eslint-plugin": "^8.10.0",
-    "@typescript-eslint/parser": "^8.7.0",
-    "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1",
-    "eslint": "^9.13.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.3"
+    "@types/mocha": "10.0.10",
+    "@types/node": "22.13.5",
+    "@types/vscode": "1.97.0",
+    "@typescript-eslint/eslint-plugin": "8.24.1",
+    "@typescript-eslint/parser": "8.24.1",
+    "@vscode/test-cli": "0.0.10",
+    "@vscode/test-electron": "2.4.1",
+    "eslint": "9.21.0",
+    "prettier": "3.5.2",
+    "typescript": "5.7.3"
   }
 }

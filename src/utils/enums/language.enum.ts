@@ -4,4 +4,5 @@ export enum AvailableLanguages {
   TYPESCRIPT = "typescript",
   DART = "dart",
   RUST = "rust",
+  KOTLIN = "kotlin",
 }

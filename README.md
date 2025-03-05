@@ -9,7 +9,6 @@
 
   ```python
   print(f'---------- Beauty Print ----------')
-
   ```
 
 - Works with:
@@ -18,6 +17,7 @@
   - Python
   - Dart
   - Rust
+  - Kotlin
 
 This extension is perfect for developers who want a quick and easy way to insert noticeable print statements for debugging.
 
