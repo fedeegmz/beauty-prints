@@ -29,5 +29,5 @@ jobs:
       - name: Run Formatter Check
         run: npm run format
 
-      - name: Run Tests
-        run: npm run test
+      - name: Run Tests with XVFB
+        run: xvfb-run --auto-servernum npm run test
