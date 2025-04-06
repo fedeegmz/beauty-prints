@@ -1,7 +1,7 @@
 import * as assert from "assert";
 import * as vscode from "vscode";
-import { MAIN_COMMAND } from "../utils/constants/commands";
-import { AvailableLanguages } from "../utils/enums/language.enum";
+
+const MAIN_COMMAND = "btprint";
 
 suite("Beauty Prints Extension Test Suite", function () {
   this.timeout(10000);
@@ -9,12 +9,12 @@ suite("Beauty Prints Extension Test Suite", function () {
   vscode.window.showInformationMessage("Starting tests...");
 
   const testLanguages = [
-    AvailableLanguages.JAVASCRIPT,
-    AvailableLanguages.TYPESCRIPT,
-    AvailableLanguages.PYTHON,
-    AvailableLanguages.DART,
-    AvailableLanguages.RUST,
-    AvailableLanguages.KOTLIN,
+    "javascript",
+    "typescript",
+    "python",
+    "dart",
+    "kotlin",
+    "rust",
   ];
 
   test("Should register completion providers for all supported languages", async () => {
