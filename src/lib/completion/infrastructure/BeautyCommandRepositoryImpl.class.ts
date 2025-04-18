@@ -1,3 +1,4 @@
+import { Settings } from "../../settings/domain/Settings.class";
 import { BeautyCommand } from "../domain/BeautyCommand.class";
 import { BeautyCommandDocs } from "../domain/BeautyCommandDocs.class";
 import {
@@ -9,12 +10,14 @@ import { BeautyCommandRepository } from "../domain/BeautyCommandRepository.inter
 import { BeautyCommandTrigger } from "../domain/BeautyCommandTrigger.class";
 
 export class BeautyCommandRepositoryImpl implements BeautyCommandRepository {
+  settings: Settings;
   data: BeautyCommand[] = [];
 
-  constructor() {
-    const trigger = new BeautyCommandTrigger();
+  constructor(settings: Settings) {
+    this.settings = settings;
+    const trigger = new BeautyCommandTrigger(settings.beautyCommand.trigger);
     const docs = new BeautyCommandDocs("Inserts a beauty print statement.");
-    const printStmt = "---------- ${1|Beauty-Print|} ----------";
+    const printStmt = settings.beautyCommand.renderedOutput;
     this.data.push(
       new BeautyCommand(
         trigger,

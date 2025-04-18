@@ -1,9 +1,13 @@
 import * as vscode from "vscode";
 import { FindAllBeautyCommand } from "../application/FindAllBeautyCommand.class";
-import { BeautyCommandRepositoryImpl } from "./BeautyCommandRepositoryImpl.class";
+import { BeautyCommandRepository } from "../domain/BeautyCommandRepository.interface";
 
 export class BeautyCommandController {
-  beautyCommandRepository = new BeautyCommandRepositoryImpl();
+  beautyCommandRepository: BeautyCommandRepository;
+
+  constructor(beautyCommandRepository: BeautyCommandRepository) {
+    this.beautyCommandRepository = beautyCommandRepository;
+  }
 
   findAllCompletions(): vscode.Disposable[] {
     const disposables: vscode.Disposable[] = [];
