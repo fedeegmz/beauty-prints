@@ -12,7 +12,6 @@ export class SettingsBeautyCommand {
   }
 
   private ensureIsValid() {
-    console.log(this.renderedOutput);
     if (
       !this.renderedOutput.startsWith('"') &&
       !this.renderedOutput.startsWith("'") &&

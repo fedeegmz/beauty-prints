@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.0] - Current
+
+### Added
+
+- Added settings support for the `btprint` command, allowing users to configure output styles.
+
+### Changed
+
+- Refactored the codebase to follow Hexagonal Architecture principles, improving modularity and testability.
+
 ## [0.1.0] - 2025-03-04
 
 ### Added
